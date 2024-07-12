@@ -1,9 +1,9 @@
 [project]
 name = "mygstcafe"
 authors = [
-    { name = "Pinnacle Finserv Advisors Private Limited", email = "mygastcafe@gmail.com"}
+    { name = "Pinnacle Finserv Advisors Private Limited", email = "pinnacle@gmail.com"}
 ]
-description = "An app to manage GST."
+description = "An app to manage GST"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

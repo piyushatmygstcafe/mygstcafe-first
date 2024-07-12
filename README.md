@@ -1,6 +1,6 @@
 ## MYGSTCAFE
 
-An app to manage GST.
+An app to manage GST
 
 #### License
 

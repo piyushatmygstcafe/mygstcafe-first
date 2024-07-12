@@ -1,8 +1,8 @@
 app_name = "mygstcafe"
 app_title = "MYGSTCAFE"
 app_publisher = "Pinnacle Finserv Advisors Private Limited"
-app_description = "An app to manage GST."
-app_email = "mygastcafe@gmail.com"
+app_description = "An app to manage GST"
+app_email = "pinnacle@gmail.com"
 app_license = "mit"
 # required_apps = []
 
