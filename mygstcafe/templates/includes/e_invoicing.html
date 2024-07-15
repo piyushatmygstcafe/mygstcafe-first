@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Grand Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in data %}
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              name="select_row"
+              value="{{ item.name }}"
+              class="selected-row"
+              onclick="selectOnlyOne(this)"
+            />{{ item.name }}
+          </td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.status }}</td>
+          <td>{{ item.total }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button class="view-button">View Data</button>
+    <div id="items-table"></div>
+  </body>
+</html>
+
+<script>
+  function selectOnlyOne(checkbox) {
+    const checkboxes = document.getElementsByName("select_row");
+    checkboxes.forEach((item) => {
+      if (item !== checkbox) item.checked = false;
+    });
+  }
+
+  document
+    .getElementsByClassName("view-button")[0]
+    .addEventListener("click", function showItem() {
+      const element = document.getElementById("items-table");
+
+      if (element) {
+        if (element.childNodes.length > 0) {
+          element.innerHTML = "";
+        }
+      }
+
+      const selectedRow = document.querySelector(
+        'input[name="select_row"]:checked'
+      );
+      if (selectedRow) {
+        const id = selectedRow.value;
+        frappe.call({
+          method: "mygstcafe.api.get_sale_invoice",
+          args: { id: id },
+          callback: function (r) {
+            if (r.message) {
+              const data = r.message.items;
+              console.log(data);
+              const itemTable = document.createElement("table");
+              itemTable.border = "1";
+
+              const headerRow = itemTable.insertRow();
+              const headers = [
+                "Item Code",
+                "Item Name",
+                "Quantity",
+                "Rate",
+                "Amount",
+              ];
+              headers.forEach((headerText) => {
+                const headerCell = document.createElement("th");
+                headerCell.textContent = headerText;
+                headerRow.appendChild(headerCell);
+              });
+
+              data.forEach((item) => {
+                const row = itemTable.insertRow();
+                const itemCodeCell = row.insertCell();
+                itemCodeCell.textContent = item.item_code;
+
+                const itemNameCell = row.insertCell();
+                itemNameCell.textContent = item.item_name;
+
+                const quantityCell = row.insertCell();
+                quantityCell.textContent = item.qty;
+
+                const rateCell = row.insertCell();
+                rateCell.textContent = item.rate;
+
+                const amountCell = row.insertCell();
+                amountCell.textContent = item.amount;
+              });
+
+              element.appendChild(itemTable);
+            }
+          },
+        });
+      } else {
+        alert("No item selected.");
+      }
+    });
+</script>

@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2024-07-12 12:53:16.437107",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-07-12 12:58:48.296470",
+ "modified_by": "Administrator",
+ "module": "MYGSTCAFE",
+ "name": "e-invoicing",
+ "owner": "Administrator",
+ "page_name": "e-invoicing",
+ "roles": [
+  {
+   "role": "Guest"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "e-invoicing"
+}
