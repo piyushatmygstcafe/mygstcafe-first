@@ -7,6 +7,8 @@ app_license = "mit"
 
 import mygstcafe.override_auth
 
+on_logout = "mygstcafe.api.resume_default_settings"
+
 # required_apps = []
 
 # Includes in <head>

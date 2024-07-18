@@ -17,6 +17,8 @@ def get_sale_invoice(id):
     invoice_dict = invoice.as_dict()
     return invoice_dict
 
-def test():
-    frappe.msgprint("Loader from mygstcafe")
-    
+@frappe.whitelist(allow_guest=True)
+def resume_default_settings():
+    frappe.db.sql("""
+                DELETE FROM `tabSingles` WHERE `doctype` = 'Default Setting'
+                """)
