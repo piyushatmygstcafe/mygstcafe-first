@@ -1,4 +1,5 @@
 import frappe
+from frappe.utils import get_url
 
 @frappe.whitelist(allow_guest=True)
 def get_sales_data():
@@ -15,3 +16,7 @@ def get_sale_invoice(id):
     invoice = frappe.get_doc('Sales Invoice', id)
     invoice_dict = invoice.as_dict()
     return invoice_dict
+
+def test():
+    frappe.msgprint("Loader from mygstcafe")
+    

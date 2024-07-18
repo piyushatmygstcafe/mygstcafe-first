@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-18 15:57:28.341196",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "select_company",
+  "column_break_kseg",
+  "fiscal_year"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_company",
+   "fieldtype": "Link",
+   "label": "Select Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "fiscal_year",
+   "fieldtype": "Link",
+   "label": "Fiscal Year",
+   "options": "Fiscal Year"
+  },
+  {
+   "fieldname": "column_break_kseg",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-07-18 16:01:29.099950",
+ "modified_by": "Administrator",
+ "module": "MYGSTCAFE",
+ "name": "Default Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -4,6 +4,9 @@ app_publisher = "Pinnacle Finserv Advisors Private Limited"
 app_description = "An app to manage GST"
 app_email = "pinnacle@gmail.com"
 app_license = "mit"
+
+import mygstcafe.override_auth
+
 # required_apps = []
 
 # Includes in <head>
@@ -127,7 +130,7 @@ app_license = "mit"
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-# 	}
+# 	},
 # }
 
 # Scheduled Tasks
