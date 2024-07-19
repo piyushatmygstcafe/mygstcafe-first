@@ -5,7 +5,6 @@ frappe.pages["e-invoicing"].on_page_load = function (wrapper) {
     single_column: true,
   });
   $(frappe.render_template("e_invoicing", {})).appendTo(page.main);
-
   frappe.call({
     method: "mygstcafe.api.get_sales_data",
     callback: function (r) {

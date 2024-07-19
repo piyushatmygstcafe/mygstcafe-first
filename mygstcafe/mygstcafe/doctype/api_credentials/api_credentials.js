@@ -59,7 +59,6 @@ frappe.ui.form.on("API Credentials", {
       });
 
     frm.toggle_enable("application_from", false);
-    
   },
 
   customer_id: function (frm) {
@@ -90,7 +89,7 @@ frappe.ui.form.on("API Credentials", {
       "threshold_limit_includes",
       "applicable_for_intrastate",
     ]);
-    
+
     // css using jquerry for removing section break linings eway_bill_sec_1
 
     // $(

@@ -22,7 +22,7 @@ def custom_set_user_info(self, resume=False):
         frappe.local.cookie_manager.set_cookie("system_user", "yes")
         if not resume:
             frappe.local.response["message"] = "Logged In"
-            frappe.local.response["home_page"] = "/app/default-setting"  # Changed from /app/test-setting
+            frappe.local.response["home_page"] = "/app/set-defaults"  # Changed from /app/test-setting
 
     if not resume:
         frappe.response["full_name"] = self.full_name
