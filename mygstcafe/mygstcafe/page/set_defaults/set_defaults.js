@@ -35,9 +35,8 @@ frappe.pages["set-defaults"].on_page_load = function (wrapper) {
             });
           } else {
             // $(".navbar").removeClass("hidden");
-            localStorage.clear();
-            sessionStorage.clear();
             frappe.set_route("/app/home");
+            location.reload();
           }
         }
       },
