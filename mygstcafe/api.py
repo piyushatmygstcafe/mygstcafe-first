@@ -1,6 +1,6 @@
 import frappe
 import frappe.defaults
-from frappe.utils import get_url
+from frappe import _
 
 @frappe.whitelist(allow_guest=True)
 def get_sales_data():
@@ -40,3 +40,4 @@ def change_default_company(company_name):
     except Exception as e:
       
         return {"error": str(e)}
+

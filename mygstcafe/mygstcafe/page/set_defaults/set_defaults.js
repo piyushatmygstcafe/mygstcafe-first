@@ -8,7 +8,7 @@ frappe.pages["set-defaults"].on_page_load = function (wrapper) {
   $(`
     <div style="display: flex; height: 200px; justify-content: center; align-items: center;">
       <div id="company-selection-container" style="display: flex; flex-direction: column; gap:10px;  align-items: center;">
-        <label for="company" style="margin-right: 10px; font-weight: bold;">Select a Company</label>
+        <label for="company" style="margin-right: 10px; font-weight: bold;">Select your Company</label>
         <select id="company-select" style="flex: 1; margin-right: 10px; padding: 5px; border: 1px solid #d1d8dd; border-radius: 4px;"></select>
         <button id="change-company" class="btn btn-primary" style="padding: 5px 10px;">Proceed</button>
       </div>
