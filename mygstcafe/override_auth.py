@@ -1,8 +1,8 @@
-# my_custom_app/my_custom_app/auth_override.py
+# methods to override after loging or redirection processs
 
 import frappe
 from frappe.auth import LoginManager
-from frappe.website.utils import get_home_page
+
 
 # Store the original set_user_info method
 original_set_user_info = LoginManager.set_user_info
@@ -17,12 +17,12 @@ def custom_set_user_info(self, resume=False):
         frappe.local.cookie_manager.set_cookie("system_user", "no")
         if not resume:
             frappe.local.response["message"] = "No App"
-            frappe.local.response["home_page"] = "/" + get_home_page()
+            frappe.local.response["home_page"] = "/app/set-defaults" # sett routes here
     else:
         frappe.local.cookie_manager.set_cookie("system_user", "yes")
         if not resume:
             frappe.local.response["message"] = "Logged In"
-            frappe.local.response["home_page"] = "/app/set-defaults" 
+            frappe.local.response["home_page"] = "/app/set-defaults" # set routes here
 
     if not resume:
         frappe.response["full_name"] = self.full_name
