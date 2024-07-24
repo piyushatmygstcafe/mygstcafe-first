@@ -17,6 +17,7 @@ import mygstcafe.override_auth
 # include js, css files in header of desk.html
 # app_include_css = "/assets/mygstcafe/css/mygstcafe.css"
 
+app_include_js = "/assets/mygstcafe/js/costumScript.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/mygstcafe/css/mygstcafe.css"
@@ -127,16 +128,20 @@ import mygstcafe.override_auth
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	# "*": {
-#     #     "get_list": "mygstcafe.mygstcafe.utils.apply_default_company_filter"
-#     # },
+doc_events = {
+	# "*": {
+    #     "get_list": "mygstcafe.mygstcafe.utils.apply_default_company_filter"
+    # },
  
-# #   'Sales Invoice': {
-# #         'before_list': 'mygstcafe.mygstcafe.doctype.sales_invoice.filter_sales_invoice.extend_sales_invoice_filters'
-# #     }
+#   'Sales Invoice': {
+#         'before_list': 'mygstcafe.mygstcafe.doctype.sales_invoice.filter_sales_invoice.extend_sales_invoice_filters'
+#     }
+
+    "Item": {
+        "after_save": "mygstcafe.costumHook.after_save"
+    }
  
-# }
+}
 
 # Scheduled Tasks
 # ---------------

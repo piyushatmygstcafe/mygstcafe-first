@@ -55,4 +55,11 @@ def set_default_settings(data):
     except Exception as e:
         return { "error": str(e) }
 
+@frappe.whitelist(allow_guest=True)
+def get_item_defaults():
+    user = frappe.session.user
+    
+    default_company = frappe.db.get_value("DefaultValue", {"parent": user, "defkey": "company"}, "defvalue")
+    
+    return default_company
 
