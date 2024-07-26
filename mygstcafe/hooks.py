@@ -138,9 +138,14 @@ doc_events = {
 #   'Sales Invoice': {
 #         'before_list': 'mygstcafe.mygstcafe.doctype.sales_invoice.filter_sales_invoice.extend_sales_invoice_filters'
 #     }
-
     "Item": {
-        "before_save": "mygstcafe.set_item_defaults.before_save"
+        "before_save": "mygstcafe.set_doctype_values.before_save"
+    },
+    "Customer":{
+        "before_save":"mygstcafe.set_doctype_values.before_save"
+    },
+    "Supplier":{
+        "before_save":"mygstcafe.set_doctype_values.before_save"
     }
  
 }
