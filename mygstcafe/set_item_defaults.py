@@ -15,8 +15,6 @@ def before_save(doc, method):
     # if item defaults table has no values then it will set values
     doc.append('item_defaults', {
     'company': default_company,
-    'default_warehouse': warehouse,
-    
    })
 
 
