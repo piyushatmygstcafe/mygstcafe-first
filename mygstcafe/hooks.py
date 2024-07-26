@@ -18,7 +18,6 @@ import mygstcafe.override_auth
 # app_include_css = "/assets/mygstcafe/css/mygstcafe.css"
 
 app_include_js = [
-    "assets/mygstcafe/js/setItemDefaults.js",
     "assets/mygstcafe/js/globaCompanylFilter.js"
 ]
 
@@ -141,7 +140,7 @@ doc_events = {
 #     }
 
     "Item": {
-        "after_save": "mygstcafe.mygstcafe.costum_hook.after_save"
+        "before_save": "mygstcafe.set_item_defaults.before_save"
     }
  
 }
