@@ -18,8 +18,9 @@ import mygstcafe.override_auth
 # app_include_css = "/assets/mygstcafe/css/mygstcafe.css"
 
 app_include_js = [
-    "assets/mygstcafe/js/globaCompanylFilter.js"
-]
+    "/assets/mygstcafe/js/globalCompanylFilter.js",
+    ]
+
 
 # include js, css files in header of web template
 # web_include_css = "/assets/mygstcafe/css/mygstcafe.css"
@@ -146,8 +147,13 @@ doc_events = {
     },
     "Supplier":{
         "before_save":"mygstcafe.set_doctype_values.before_save"
-    }
- 
+    },
+    "BankReconciliationTool":{
+        "before_save":"mygstcafe.set_doctype_values.before_save"
+    },
+     "Session Default": {
+        "on_update": "mygstcafe.handlers.session_default_handler.session_default_on_update"
+    },
 }
 
 # Scheduled Tasks

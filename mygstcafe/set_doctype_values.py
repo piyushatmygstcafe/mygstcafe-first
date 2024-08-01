@@ -2,6 +2,7 @@ import frappe
 from erpnext.selling.doctype.customer.customer import Customer
 from erpnext.buying.doctype.supplier.supplier import Supplier
 from erpnext.stock.doctype.item.item import Item
+from erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool import BankReconciliationTool
 
 def before_save(doc, method):
     user = frappe.session.user
@@ -13,6 +14,10 @@ def before_save(doc, method):
         field_name = "accounts"
     elif doc.doctype == "Item":
         field_name = "item_defaults"
+    elif doc.doctype == "BankReconciliationTool":
+        if not doc.company:
+            return
+        doc.company = default_company
     else:
         return
     
